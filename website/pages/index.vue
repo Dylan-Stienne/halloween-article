@@ -2,7 +2,7 @@
   <div>
     <Nav />
     <Article />
-    <Canvas3D />
+    <Canvas3D id="canva"/>
   </div>
 </template>
 

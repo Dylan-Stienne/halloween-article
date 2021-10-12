@@ -43,6 +43,12 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+ build: {
+    transpile: ['GLTFLoader.js', 'OrbitControls.js', 'TransformControls.js'],
+    /*
+    ** You can extend webpack config here
+    */
+    extend(config, ctx) {
+    }
   }
 }
