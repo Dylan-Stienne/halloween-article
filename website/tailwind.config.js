@@ -6,8 +6,12 @@ module.exports = {
   darkMode: 'class', // or 'media' or false
   theme: {
     extend: {
+      maxWidth: {
+        'content': '1440px',
+      }
     },
     colors: {
+      'orange': "#F7973A",
       'orange-light': "#211B0F",
       'white': '#FFFFFF',
       'black': '#000000',
