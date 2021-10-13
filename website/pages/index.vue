@@ -18,7 +18,7 @@ export default {
       this.$nuxt.$store.commit("darkMode/enable");
       setTimeout(function () {
         this.$nuxt.$store.commit("darkMode/disable");
-      }, 150 + 300 * Math.random());
+      }, 200);
 
       // create next loop randomly
       clearInterval(this.loop);
