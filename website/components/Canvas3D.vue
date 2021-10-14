@@ -1,7 +1,7 @@
 <template>
-<section>
-   <div id="object"></div>
-</section>
+  <section  class="h-100 mt-20">
+    <div id="object"  class="h-70"></div>
+  </section>
 </template>
 <script>
 import * as THREE from 'three';
@@ -29,6 +29,7 @@ export default {
       this.scene = new THREE.Scene();
       this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
       this.camera.position.y = 15;
+      this.camera.position.x = 15;
       var loader = new GLTFLoader();
       loader.load('/models/skull.glb', ( gltf ) =>
         {
@@ -43,7 +44,7 @@ export default {
       this.renderer = new THREE.WebGLRenderer({alpha: true});
       this.renderer.setSize(800,800);
       this.renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
-      this.renderer.domElement.style.display = "flex";
+      this.renderer.domElement.style.maxHeight = "100%";
        this.renderer.domElement.style.margin = "auto";
       this.renderer.domElement.style.marginTop = "10px";
       document.getElementById('object').appendChild(this.renderer.domElement)
