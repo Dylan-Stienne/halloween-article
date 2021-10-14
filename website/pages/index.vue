@@ -1,8 +1,11 @@
 <template>
   <div>
-    <Nav />
-    <Article />
-    <Canvas3D />
+    <ModalArticle v-if="modalOpened" @close="modalOpened = false" />
+    <div>
+      <Nav />
+      <Article @open="modalOpened = true" />
+      <Canvas3D />
+    </div>
   </div>
 </template>
 
@@ -11,13 +14,18 @@ export default {
   data() {
     return {
       loop: setInterval(this.toggleDarkMode, 3000),
+      modalOpened: false,
     };
   },
   methods: {
     toggleDarkMode() {
-      this.$nuxt.$store.commit("darkMode/enable");
+      document.body.classList.add("dark:bg-gradient-to-tr");
+      document.body.classList.add("dark:from-black");
+      document.body.classList.add("dark:to-orange-light");
       setTimeout(function () {
-        this.$nuxt.$store.commit("darkMode/disable");
+        document.body.classList.remove("dark:bg-gradient-to-tr");
+        document.body.classList.remove("dark:from-black");
+        document.body.classList.remove("dark:to-orange-light");
       }, 200);
 
       // create next loop randomly

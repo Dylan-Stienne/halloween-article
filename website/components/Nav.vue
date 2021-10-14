@@ -1,11 +1,65 @@
 <template>
-  <nav class="w-full h-16 flex justify-center">
+  <nav
+    class="
+      w-full
+      h-16
+      flex
+      justify-center
+      transition-all
+      duration-300
+      dark:mb-8
+    "
+  >
+    <div class="hidden dark:block">
+      <img
+        src="@/assets/img/details/toile-2.png"
+        class="absolute opacity-20 left-0 transform -translate-x-1/4 -translate-y-16"
+      />
+      <img
+        src="@/assets/img/details/toile-4.png"
+        class="absolute max-w-3xl right-0"
+      />
+    </div>
+
     <div class="w-full h-full max-w-content relative flex">
-      <div class="bg-orange-light w-screen absolute right-full h-full"></div>
-      <div class="bg-orange-light w-screen absolute left-full h-full"></div>
+      <img
+        src="@/assets/img/indice.png"
+        alt=""
+        class="
+          hidden
+          dark:block
+          absolute
+          left-1/2
+          transform
+          -translate-x-1/2
+          h-16
+          lg:h-32
+        "
+      />
       <div
         class="
-          bg-orange-light
+          bg-primary
+          dark:bg-orange-light
+          w-screen
+          absolute
+          right-full
+          h-full
+        "
+      ></div>
+      <div
+        class="
+          bg-primary
+          dark:bg-orange-light
+          w-screen
+          absolute
+          left-full
+          h-full
+        "
+      ></div>
+      <div
+        class="
+          bg-primary
+          dark:bg-orange-light
           w-3/5
           absolute
           left-0
@@ -13,23 +67,45 @@
           flex flex-row-reverse
           items-center
           justify-between
+          transition-transform
+          duration-300
+          origin-top-left
+          transform
+          dark:rotate-12
+          dark:pl-5
+          z-40
         "
-        :class="breakingClassesNavLeft"
       >
         <img
           src="@/assets/img/nav-break.png"
           alt=""
-          class="h-full transform translate-x-full mr-1 rotate-180"
+          class="
+            h-full
+            transform
+            translate-x-full
+            mr-1
+            rotate-180
+            opacity-0
+            dark:opacity-100
+          "
         />
-        <div class="relative w-full">
-          <p class="dark:text-orange text-2xl" :class="breakingClassesNavTitle">
-            Mon vieux blog
-          </p>
+        <div class="relative w-full h-full flex items-center">
+          <img
+            src="@/assets/img/logo-light.png"
+            alt=""
+            class="h-24 dark:hidden"
+          />
+          <img
+            src="@/assets/img/logo-dark.png"
+            alt=""
+            class="h-24 hidden dark:block dark:animate-custom-nav-logo"
+          />
         </div>
       </div>
       <div
         class="
-          bg-orange-light
+          bg-primary
+          dark:bg-orange-light
           w-2/5
           absolute
           flex
@@ -37,15 +113,37 @@
           h-full
           items-center
           justify-between
+          transition-transform
+          duration-300
+          origin-top-right
+          transform
+          dark:-rotate-12
+          dark:pr-5
         "
-        :class="breakingClassesNavRight"
       >
         <img
           src="@/assets/img/nav-break.png"
           alt=""
-          class="h-full transform -translate-x-full ml-1"
+          class="
+            h-full
+            transform
+            -translate-x-full
+            ml-1
+            opacity-0
+            dark:opacity-100
+          "
         />
-        <Button @click="breaking" :class="breakingClassesNavButton">
+        <Button
+          @click="$nuxt.$store.commit('darkMode/enable')"
+          class="
+            transition-transform
+            origin-top-right
+            mr-3
+            dark:mr-16
+            dark:mt-8
+            dark:animate-custom-nav-button
+          "
+        >
           Se connecter
         </Button>
       </div>
@@ -53,62 +151,6 @@
   </nav>
 </template>
 
-<style scoped>
-.anim-button {
-  animation: button 5s ease-in-out infinite;
-}
-@keyframes button {
-  from {
-    transform: rotate(-55deg);
-  }
-  50% {
-    transform: rotate(-75deg);
-  }
-  to {
-    transform: rotate(-55deg);
-  }
-}
-
-.anim-title {
-  animation: title 3s ease forwards;
-}
-@keyframes title {
-  from {
-    margin-left: 0;
-    margin-top: 0;
-    transform: translateX(0);
-  }
-  10% {
-    margin-top: 20px;
-  }
-  60% {
-    transform: translateX(75%) rotate(0);
-  }
-  to {
-    margin-left: 65%;
-    margin-top: 20px;
-    transform: translateX(80%) rotate(-5deg);
-  }
-}
-</style>
-
 <script>
-export default {
-  data() {
-    return {
-      breakingClassesNavLeft: "",
-      breakingClassesNavRight: "",
-      breakingClassesNavTitle: "",
-      breakingClassesNavButton: "",
-    };
-  },
-  methods: {
-    breaking() {
-      this.breakingClassesNavLeft = "transition-all duration-300 pl-5 origin-top-left transform rotate-12";
-      this.breakingClassesNavRight = "transition-all duration-300 pr-5 origin-top-right transform -rotate-12";
-      this.breakingClassesNavButton = "transition-all mr-16 mt-8 origin-top-right anim-button";
-      this.breakingClassesNavTitle = "transition-all anim-title";
-    },
-  },
-};
+export default {};
 </script>
