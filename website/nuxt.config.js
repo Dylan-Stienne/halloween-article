@@ -17,7 +17,7 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/logo_escape.jpg' }
+      { rel: 'icon', type: 'image/x-icon', href: '/logo_escape.jpg'  }
     ]
   },
 
