@@ -3,8 +3,8 @@
     <ModalArticle v-if="modalOpened" @close="modalOpened = false" />
     <div>
       <Nav />
-      <Article @open="modalOpened = true" />
-      <Canvas3D id="canva" />
+      <Article @open="modalOpened = true" class="mb-20"/>
+      <Canvas3D id="canva" class="hidden dark:block"/>
     </div>
   </div>
 </template>

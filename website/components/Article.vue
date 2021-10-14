@@ -53,11 +53,28 @@
         <div class="hidden dark:block">
           <img
             src="@/assets/img/details/toile-1.png"
-            class="absolute opacity-10 w-full max-w-3xl transform -translate-x-1/3 translate-y-1/3"
+            class="
+              absolute
+              opacity-10
+              w-full
+              max-w-3xl
+              transform
+              -translate-x-1/3
+              translate-y-1/3
+            "
           />
           <img
             src="@/assets/img/details/toile-3.png"
-            class="absolute opacity-20 w-full max-w-4xl transform rotate-65 translate-x-full -translate-y-1/4"
+            class="
+              absolute
+              opacity-20
+              w-full
+              max-w-4xl
+              transform
+              rotate-65
+              translate-x-full
+              -translate-y-1/4
+            "
           />
         </div>
         <img
@@ -68,6 +85,7 @@
             bg-primary-light
             dark:bg-orange-light
             p-5
+            z-30
             rounded
             transform
             duration-2000
