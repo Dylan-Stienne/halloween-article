@@ -16,6 +16,8 @@ export default {
       scene: null,
       camera: null,
       controls: null,
+      skull: null,
+      cube: null
     }
   },
   mounted() {
@@ -25,41 +27,24 @@ export default {
   methods: {
     init () {
       this.scene = new THREE.Scene();
-      this.camera = new THREE.PerspectiveCamera(
-        16,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      );
-
-      this.renderer = new THREE.WebGLRenderer({alpha: true});
-      this.renderer.setSize( window.innerWidth/4 , window.innerHeight/4);
-      this.renderer.domElement.style.margin = "auto";
-      document.getElementById('object').appendChild(this.renderer.domElement)
-
-
-      // const geometry = new THREE.BoxGeometry(1, 1, 1);
-
-      // const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-      // this.cube = new THREE.Mesh(geometry, material);
-       const loader = new GLTFLoader();
-      const url = '/models/skull.glb';
-       loader.loadAsync(url, ( gltf ) =>
+      this.camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 1, 10000 );
+      this.camera.position.y = 15;
+      var loader = new GLTFLoader();
+      loader.load('/models/skull.glb', ( gltf ) =>
         {
-           const skull = gltf.scene;  // skull 3D object is loaded
-           console.log(skull)
-           skull.scale.set(2, 2, 2);
-           skull.position.y = 4;
-           this.scene.add(skull);
-        }, undefined, ( error ) => {
-
-	        console.error( error );
-
+          console.log(gltf);
+          this.skull = gltf.scene.children[0];  // skull 3D object is loaded
+          this.scene.add(this.skull);
         });
 
-      this.controls = new OrbitControls(this.camera, this.renderer.domElement)
+      this.renderer = new THREE.WebGLRenderer({alpha: true});
+      this.renderer.setSize(800,800);
+      this.renderer.setPixelRatio(window.devicePixelRatio);
+      this.renderer.domElement.style.margin = "auto";
+      this.renderer.domElement.style.marginTop = "5%";
+      document.getElementById('object').appendChild(this.renderer.domElement)
 
-      this.camera.position.z = 5
+      this.controls = new OrbitControls(this.camera, this.renderer.domElement);
       this.controls.update();
     },
     animate() {
