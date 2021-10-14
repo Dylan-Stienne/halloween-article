@@ -4,7 +4,7 @@
     <div>
       <Nav />
       <Article @open="modalOpened = true" />
-      <Canvas3D />
+      <Canvas3D id="canva" />
     </div>
   </div>
 </template>
