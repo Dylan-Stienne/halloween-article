@@ -37,14 +37,20 @@ export default {
           this.scene.add(this.skull);
         });
 
+      this.light = new THREE.DirectionalLight( 0xffffff, 1 );
+      this.light.position.set(5,5,10);
+      this.scene.add(this.light);
       this.renderer = new THREE.WebGLRenderer({alpha: true});
       this.renderer.setSize(800,800);
-      this.renderer.setPixelRatio(window.devicePixelRatio);
-      this.renderer.domElement.style.margin = "auto";
-      this.renderer.domElement.style.marginTop = "5%";
+      this.renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+      this.renderer.domElement.style.display = "flex";
+       this.renderer.domElement.style.margin = "auto";
+      this.renderer.domElement.style.marginTop = "10px";
       document.getElementById('object').appendChild(this.renderer.domElement)
 
       this.controls = new OrbitControls(this.camera, this.renderer.domElement);
+      this.controls.minDistance = 10;
+      this.controls.maxDistance = 20;
       this.controls.update();
     },
     animate() {
