@@ -17,5 +17,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
-  @apply bg-black text-white bg-gradient-to-tr from-black to-black dark:to-orange-light;
+  @apply bg-white text-white bg-gradient-to-tr from-black to-black dark:to-orange-light;
 }
