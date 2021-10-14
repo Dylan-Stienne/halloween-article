@@ -8,14 +8,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box !important;
-  /* @apply transition-colors duration-500; */
 }
 
 body {
-  @apply font-f-default font-normal text-base;
+  @apply font-f-default font-normal text-base select-none;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   overflow-x: hidden;
-  @apply bg-white text-white bg-gradient-to-tr from-black to-black dark:to-orange-light;
+  @apply bg-white dark:bg-black text-black dark:text-white transition-colors duration-300;
 }
